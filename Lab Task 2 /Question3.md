@@ -1,5 +1,4 @@
-### Q3) Take three variables as input
-###     and add them without using the + operator (Use your head for this)
+### Q3) Take three variables as input and add them without using the + operator (Use your head for this)
 ``````
 PRINT " Enter first Number"
 INPUT Num1
