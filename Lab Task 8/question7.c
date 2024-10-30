@@ -1,52 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    char grid[100][100] = {};
-    int i = 4;
-    int j = 0;
-    int up = 1;
-    int spaces = 1;
-    int count = 0;
-    while (count != 3) {
+    char grid[5][105] = {};
+    int i = 4, j = 0, up = 1, spaces = 1, count = 0;
+
+    while (count < 3) {
         grid[i][j] = '*';
+        up ? (i--, j += spaces++) : (i++, j += spaces--);
 
-        if (up) {
-            i--;
-            j += spaces;
-            spaces++;
-        } else {
-            i++;
-            j += spaces;
-            spaces--;
-        }
-
-        if (i == 0 && up == 1) {
+        if (i == 0 && up) {
             up = 0;
             spaces--;
-        } else if (i == 4 && up == 0) {
-            spaces = 1;
+        } else if (i == 4 && !up) {
             up = 1;
+            spaces = 1;
             count++;
-            if (count != 0) {
-                grid[i][j] = '*';
-                j += 2;
-                if (count != 3)
-                    grid[i][j] = '*';
-            }
+            grid[i][j] = '*';
+            j += 2;
+            if (count < 3) grid[i][j] = '*';
         }
     }
 
-    printf("There You GO:\n");
-    for (int i2 = 0; i2 <= 4; i2++) {
-        for (int j2 = 0; j2 < 100; j2++) {
-            if (grid[i2][j2] == '*') {
-                printf("%c", grid[i2][j2]);
-            } else {
-                printf(" ");
-            }
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 105; j++) {
+            printf("%c", grid[i][j] ? '*' : ' ');
         }
         printf("\n");
     }
-
-    return 0;
 }
