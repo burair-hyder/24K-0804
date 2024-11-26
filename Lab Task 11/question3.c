@@ -42,12 +42,12 @@ while (fscanf(file1,"%s",name)!= EOF){
 		 }
 		 
 		 char c = fgetc(file1);
-    if (c == '\n') {
-        fprintf(file2, "\n");
-    } else if (c != EOF) {
-        fprintf(file2, " ");
-        ungetc(c, file1);  // push back the character taken out for checking new line and space
-    }
+    	if (c == '\n') {
+        	fprintf(file2, "\n");
+    	}
+	 	else if (c != EOF) {
+        	fprintf(file2, " ");
+    	}
 	
 
 
@@ -56,4 +56,3 @@ while (fscanf(file1,"%s",name)!= EOF){
 fclose(file1);
 fclose(file2);
 }
-
