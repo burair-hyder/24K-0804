@@ -3,19 +3,16 @@
 # include <string.h>
 
 int main(){
-	char buffer[30];
-	char *name_dma;
-	int value;
-	printf("Enter total Number of Characters in your name:");
-	scanf("%d",&value);
 	
-	while(getchar()!= '\n');
-	printf("Enter your full name:");
-	gets(buffer);
-	if(strlen(buffer)>value){
-		printf("Large Name Input!");
-	}
-	else{
+	char buffer3[] =" ";
+	char *name_dma;
+	char *buffer2;
+	int value;
+	int size;
+	
+	printf("Enter No of Characters in your name:");
+	scanf("%d",&value);
+	while(getchar()!='\n');
 	
 	name_dma = (char*)malloc(value*sizeof(char));
 	
@@ -23,11 +20,10 @@ int main(){
 		printf("Memory Allocation Failed!");
 	}
 	else{
+		printf("Enter your full name:");
+		gets(name_dma);
+	}	
 	
-	strcpy(name_dma,buffer);
-	
-	printf("Your full Name is : %s",name_dma);
-}
-}
+	printf("Your full Name is : %s\n",name_dma);
 
 }
